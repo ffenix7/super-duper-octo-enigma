@@ -22,11 +22,21 @@ h1 {
   color: #333333;
 }
 
+:is(.grid, .flex) {
+  gap: 10px;
+}
+
 .grid {
   display: grid;
   grid-template-columns: repeat(3, 100px);
   grid-template-rows: repeat(3, 100px);
-  gap: 10px;
+}
+
+.flex {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 
 .cell {

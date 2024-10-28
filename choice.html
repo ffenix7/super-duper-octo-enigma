@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Choice</title>
+    <link rel="shortcut icon" href="./img/fav.png" type="image/x-icon">
+
+    <link rel="stylesheet" href="style.css">
+
+    <script>
+        function choose(c) { window.location.href = `./game.html?symbol=${c}`; }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Choose your symbol:</h1>
+        
+        <div class="flex">
+            <div class="cell x" onclick="choose('x')">X</div>
+            <div class="cell o" onclick="choose('o')">O</div>
+        </div>
+    </div>
+</body>
+</html>
