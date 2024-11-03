@@ -64,3 +64,7 @@ h1 {
 .cell.o {
   color: #4caf50;
 }
+
+a {
+  all: unset;
+}
