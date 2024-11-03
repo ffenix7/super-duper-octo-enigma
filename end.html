@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Choice</title>
+    <link rel="shortcut icon" href="./img/fav.png" type="image/x-icon">
+
+    <link rel="stylesheet" href="style.css">
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const winner = urlParams.get('winner');
+
+        const texts = ["You won!", "It's a draw.", "You lost..."];
+        const ids = { 'x': 0, 'd': 1, 'o': 2 };
+
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelector('h1').innerText = texts[ids[winner]];
+        });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1 id="winner"></h1>
+    </div>
+</body>
+</html>

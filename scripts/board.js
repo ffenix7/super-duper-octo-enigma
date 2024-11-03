@@ -55,6 +55,21 @@ function check_board_state() {
     return '';
 }
 
+if(player_symbol != 'x')
+    bot();
+
 function onCellClick(event) {
-    place(parseInt(this.id.slice(-1)), player_symbol);
+    let c = place(parseInt(this.id.slice(-1)), player_symbol);
+
+    if(c != '' || cells_left == 0)
+    {
+        end(cells_left == 0 ? 'd' : c);
+        return;
+    }
+
+    bot();
+}
+
+function end(winner) {
+    window.location.href = `./end.html?winner=${winner}`;
 }
