@@ -14,7 +14,7 @@
         const winner = urlParams.get('winner');
 
         const texts = ["You won!", "It's a draw.", "You lost..."];
-        const ids = { 'x': 0, 'd': 1, 'o': 2 };
+        const ids = { 'p': 0, 'd': 1, 'b': 2 };
 
         document.addEventListener('DOMContentLoaded', () => {
             document.querySelector('h1').innerText = texts[ids[winner]];

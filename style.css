@@ -22,7 +22,7 @@ h1 {
   color: #333333;
 }
 
-:is(.grid, .flex) {
+.grid, .flex {
   gap: 10px;
 }
 
