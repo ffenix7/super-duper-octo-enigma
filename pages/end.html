@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Choice</title>
-    <link rel="shortcut icon" href="./img/fav.png" type="image/x-icon">
+    <link rel="shortcut icon" href="./../img/fav.png" type="image/x-icon">
 
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./../style.css">
 
     <script>
         const urlParams = new URLSearchParams(window.location.search);
@@ -17,13 +17,15 @@
         const ids = { 'p': 0, 'd': 1, 'b': 2 };
 
         document.addEventListener('DOMContentLoaded', () => {
-            document.querySelector('h1').innerText = texts[ids[winner]];
+            document.querySelector('#winner').innerText = texts[ids[winner]];
         });
     </script>
 </head>
 <body>
     <div class="container">
         <h1 id="winner"></h1>
+
+        <a href="./choice.html" class="btn blue">Play again?</a>
     </div>
 </body>
 </html>

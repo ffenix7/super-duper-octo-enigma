@@ -79,7 +79,9 @@ function onCellClick(event) {
 }
 
 function end(winner) {
-    window.location.href = `./end.html?winner=${winner}`;
+    setTimeout(() => {
+        window.location.href = `./end.html?winner=${winner}`;
+    }, 2000);
 }
 
 function evaluate(board, cell_id, symbol, depth) {
@@ -114,7 +116,7 @@ function bot() {
     cells_left.forEach((option) => {
         const evaluation = evaluate(board_cells_data, option, other_symbol, 0);
         
-        if(evaluation > best_val) {
+        if(evaluation > best_val || (evaluation == best_val && Math.random() < .5)) {
             best_val = evaluation;
             best_option = option;
         }
