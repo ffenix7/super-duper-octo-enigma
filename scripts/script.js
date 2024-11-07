@@ -81,7 +81,7 @@ function onCellClick(event) {
 function end(winner) {
     setTimeout(() => {
         window.location.href = `./end.html?winner=${winner}`;
-    }, 2000);
+    }, 1000);
 }
 
 function evaluate(board, cell_id, symbol, depth) {
