@@ -20,20 +20,20 @@
   
 body {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100vh;
   background-color: #f0f8ff;
   font-family: Arial, sans-serif;
-}
-
-.container {
   text-align: center;
 }
 
+h1, h2 {
+  color: #333333;
+}
 h1 {
   margin-bottom: 20px;
-  color: #333333;
 }
 
 .grid, .flex {
@@ -44,6 +44,7 @@ h1 {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(3, 1fr);
+  flex-grow: 1;
 }
 
 .flex {
@@ -128,4 +129,7 @@ a {
 
 .hidden {
   display: none;
+}
+.scale {
+  transform: scale(0);
 }

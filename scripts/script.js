@@ -78,10 +78,18 @@ function onCellClick(event) {
         bot();
 }
 
+const footer = document.querySelector('footer');
+
+const results = ["You won!","It's a draw.", "You lost..."];
+const ids = { 'p': 0, 'd': 1, 'b': 2 };
+
 function end(winner) {
-    setTimeout(() => {
-        window.location.href = `./end.html?winner=${winner}`;
-    }, 1000);
+    res.innerText = `${results[ids[winner]]}`;
+
+    footer.style.transition = '2s';
+
+    footer.classList.remove('hidden');
+    footer.classList.remove('scale');
 }
 
 function evaluate(board, cell_id, symbol, depth) {
