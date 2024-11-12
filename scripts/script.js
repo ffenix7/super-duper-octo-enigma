@@ -2,11 +2,13 @@ const board_cells = document.querySelectorAll('.cell');
 const board_cells_data = [];
 
 const url_params = new URLSearchParams(window.location.search);
-const player_symbol = url_params.get('symbol');
+const _player_symbol = url_params.get('symbol');
+
+const player_symbol = (_player_symbol != 'o' && _player_symbol != 'x') ? 'x' : _player_symbol
 
 const other_symbol = (player_symbol == 'x' ? 'o' : 'x');
 
-board_cells.forEach((cell) => {
+board_cells.forEach(cell => {
 	cell.addEventListener('click', onCellClick);
 	board_cells_data.push(cell.innerText);
 });
@@ -36,7 +38,7 @@ function place(cell_id, symbol) {
 
 	if(state != '' || cells_left.length == 0)
 	{
-		board_cells.forEach((c) => {
+		board_cells.forEach(c => {
 			c.removeEventListener('click', onCellClick);
 		});
 
@@ -110,7 +112,7 @@ function evaluate(board, cell_id, symbol, depth) {
 	let best_val = (is_player ? -Infinity : Infinity);
 	const eval_func = (is_player ? Math.max : Math.min);
 
-	cells.forEach((option) => {
+	cells.forEach(option => {
 		best_val = eval_func(evaluate(new_board, option, other_symbol, depth + 1), best_val);
 	});
 
@@ -121,7 +123,7 @@ function bot() {
 	let best_option = undefined;
 	let best_val = -Infinity;
 
-	cells_left.forEach((option) => {
+	cells_left.forEach(option => {
 		const evaluation = evaluate(board_cells_data, option, other_symbol, 0);
 		
 		if(evaluation > best_val || (evaluation == best_val && Math.random() < .5)) {
