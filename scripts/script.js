@@ -90,7 +90,6 @@ function end(winner) {
 
 	footer.style.transition = '2s';
 
-	footer.classList.remove('hidden');
 	footer.classList.remove('scale');
 }
 

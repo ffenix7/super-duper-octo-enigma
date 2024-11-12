@@ -135,9 +135,11 @@ a {
 	background-color: var(--l_red);
 }
 
-.hidden {
-	display: none;
+footer {
+	height: 150px;
 }
+
 .scale {
 	transform: scale(0);
+	height: 0;
 }
