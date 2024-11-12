@@ -1,135 +1,135 @@
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
 }
 
 :root {
-  --blue: #55acee;
-  --l_blue: #6fc6ff;
-  --d_blue: #3c93d5;
+	--blue: #55acee;
+	--l_blue: #6fc6ff;
+	--d_blue: #3c93d5;
 
-  --green: #2ecc71;
-  --l_green: #48e68b;
-  --d_green: #15b358;
+	--green: #2ecc71;
+	--l_green: #48e68b;
+	--d_green: #15b358;
 
-  --red: #e74c3c;
-  --l_red: #ff6656;
-  --d_red: #ce3323;
+	--red: #e74c3c;
+	--l_red: #ff6656;
+	--d_red: #ce3323;
 }
-  
+	
 body {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  background-color: #f0f8ff;
-  font-family: Arial, sans-serif;
-  text-align: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	background-color: #f0f8ff;
+	font-family: Arial, sans-serif;
+	text-align: center;
 }
 
 h1, h2 {
-  color: #333333;
+	color: #333333;
 }
 h1 {
-  margin-bottom: 20px;
+	margin-bottom: 20px;
 }
 
 .grid, .flex {
-  gap: 10px;
+	gap: 10px;
 }
 
 .grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(3, 1fr);
-  flex-grow: 1;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-template-rows: repeat(3, 1fr);
+	flex-grow: 1;
 }
 
 .flex {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
 }
 
 .cell {
-  width: 100px;
-  height: 100px;
-  background-color: #fffaf0;
-  border: 3px solid #333;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 2em;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+	width: 100px;
+	height: 100px;
+	background-color: #fffaf0;
+	border: 3px solid #333;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 2em;
+	font-weight: bold;
+	cursor: pointer;
+	transition: background-color 0.3s ease;
 }
 
 .cell:hover {
-  background-color: #e0e0e0;
+	background-color: #e0e0e0;
 }
 
 .x {
-  color: var(--red);
+	color: var(--red);
 }
 
 .o {
-  color: var(--green);
+	color: var(--green);
 }
 
 a {
-  all: unset;
-  cursor: pointer;
+	all: unset;
+	cursor: pointer;
 }
 
 .b {
-  font-weight: bold;
+	font-weight: bold;
 }
 
 .btn {
-  border-radius: 5px;
-  padding: 15px 25px;
-  font-size: 22px;
-  text-decoration: none;
-  margin: 20px;
-  color: #fff;
-  display: inline-block;
+	border-radius: 5px;
+	padding: 15px 25px;
+	font-size: 22px;
+	text-decoration: none;
+	margin: 20px;
+	color: #fff;
+	display: inline-block;
 }
 .btn:active {
-  transform: translate(0px, 5px);
-  box-shadow: 0px 1px 0px 0px;
+	transform: translate(0px, 5px);
+	box-shadow: 0px 1px 0px 0px;
 }
 
 .blue {
-  background-color: var(--blue);
-  box-shadow: 0px 5px 0px 0px var(--d_blue);
+	background-color: var(--blue);
+	box-shadow: 0px 5px 0px 0px var(--d_blue);
 }
 .blue:hover {
-  background-color: var(--l_blue);
+	background-color: var(--l_blue);
 }
 
 .green {
-  background-color: var(--green);
-  box-shadow: 0px 5px 0px 0px var(--d_green);
+	background-color: var(--green);
+	box-shadow: 0px 5px 0px 0px var(--d_green);
 }
 .green:hover {
-  background-color: var(--l_green);
+	background-color: var(--l_green);
 }
 
 .red {
-  background-color: var(--red);
-  box-shadow: 0px 5px 0px 0px var(--d_red);
+	background-color: var(--red);
+	box-shadow: 0px 5px 0px 0px var(--d_red);
 }
 .red:hover {
-  background-color: var(--l_red);
+	background-color: var(--l_red);
 }
 
 .hidden {
-  display: none;
+	display: none;
 }
 .scale {
-  transform: scale(0);
+	transform: scale(0);
 }

@@ -1,0 +1,11 @@
+
+# Suggested by editorconfig.org website
+[*]
+# end_of_line = lf
+insert_final_newline = true
+charset = utf-8
+
+# Sane indentation
+[*.{html,js,css}]
+indent_style = tab
+indent_size = 4

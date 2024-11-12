@@ -1,2 +1,2 @@
 # super-duper-octo-enigma
-Implementation of MiniMax algorithm in TypeScript
+Implementation of MiniMax algorithm in JavaScript
