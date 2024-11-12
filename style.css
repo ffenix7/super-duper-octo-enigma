@@ -16,17 +16,25 @@
 	--red: #e74c3c;
 	--l_red: #ff6656;
 	--d_red: #ce3323;
+
+	--cell-bg: #fffaf0;
 }
 	
 body {
 	display: flex;
-	flex-direction: column;
-	justify-content: center;
 	align-items: center;
+	justify-content: center;
+
 	height: 100vh;
 	background-color: #f0f8ff;
 	font-family: Arial, sans-serif;
 	text-align: center;
+}
+
+main {
+	display: flex;
+	flex-flow: column nowrap;
+	gap: 20px;
 }
 
 h1, h2 {
@@ -57,7 +65,7 @@ h1 {
 .cell {
 	width: 100px;
 	height: 100px;
-	background-color: #fffaf0;
+	background-color: var(--cell-bg);
 	border: 3px solid #333;
 	display: flex;
 	justify-content: center;
