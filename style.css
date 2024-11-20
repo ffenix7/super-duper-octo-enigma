@@ -11,10 +11,12 @@
 
 	--green: #2ecc71;
 	--l_green: #48e68b;
+	--ul_green: hsl(145, 100%, 90%);
 	--d_green: #15b358;
 
 	--red: #e74c3c;
 	--l_red: #ff6656;
+	--ul_red: hsl(7, 100%, 90%);
 	--d_red: #ce3323;
 
 	--cell-bg: #fffaf0;
@@ -73,7 +75,7 @@ h1 {
 	font-size: 2em;
 	font-weight: bold;
 	cursor: pointer;
-	transition: background-color 0.3s ease;
+	transition: background-color .3s ease;
 }
 
 .cell:hover {
@@ -133,6 +135,17 @@ a {
 }
 .red:hover {
 	background-color: var(--l_red);
+}
+
+.highlight {
+	transition: background-color 1s ease;
+}
+
+.highlight.x {
+	background-color: var(--ul_red);
+}
+.highlight.o {
+	background-color: var(--ul_green);
 }
 
 .hidden {
