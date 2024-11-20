@@ -34,10 +34,14 @@ function place(cell_id, symbol) {
 	cells_left.splice(cells_left.indexOf(cell_id), 1);
 	board_cells_data[cell_id] = symbol;
 
-	const state = check_board_state(board_cells_data);
+	const [state, cells_ids] = check_board_state(board_cells_data);
 
 	if(state != '' || cells_left.length == 0)
 	{
+		cells_ids.forEach(c => {
+			board_cells[c].classList.add('highlight')
+		})
+
 		board_cells.forEach(c => {
 			c.removeEventListener('click', onCellClick);
 		});
@@ -53,27 +57,24 @@ function check_board_state(board) {
 	// rows
 	for(let y=0; y<9; y+=3) {
 		if(board[y] != '' && board[y] == board[y+1] && board[y] == board[y+2]) 
-			return board[y];
+			return [board[y], [y, y+1, y+2]];
 	}
 
 	// cols
 	for(let x=0; x<3; x++) {
 		if(board[x] != '' && board[x] == board[x+3] && board[x] == board[x+6]) 
-			return board[x];
+			return [board[x], [x, x+3, x+6]];
 	}
 
 	// diagonals
 	if(board[0] != '' && board[0] == board[4] && board[0] == board[8]) 
-		return board[0];
+		return [board[0], [0, 4, 8]];
 
 	if(board[2] != '' && board[2] == board[4] && board[2] == board[6])
-		return board[2];
+		return [board[2], [2, 4, 6]];
 
-	return '';
+	return ['',[]];
 }
-
-if(player_symbol != 'x')
-	bot();
 
 function onCellClick(event) {
 	if (place(parseInt(this.id.slice(-1)), player_symbol))
@@ -93,11 +94,17 @@ function end(winner) {
 	footer.classList.remove('scale');
 }
 
+const memo = {}
+
 function evaluate(board, cell_id, symbol, depth) {
 	const new_board = [...board];
 	new_board[cell_id] = symbol;
 
-	const state = check_board_state(new_board);
+	const board_symbol = new_board.join(':')
+	if(board_symbol in new_board)
+		return memo[board_symbol];
+
+	const [state, _] = check_board_state(new_board);
 
 	if(state == player_symbol)	return (-10 + depth);
 	else if(state != '')		return ( 10 - depth);
@@ -115,6 +122,7 @@ function evaluate(board, cell_id, symbol, depth) {
 		best_val = eval_func(evaluate(new_board, option, other_symbol, depth + 1), best_val);
 	});
 
+	memo[board_symbol] = best_val;
 	return best_val;
 }
 
@@ -133,3 +141,6 @@ function bot() {
 
 	place(best_option, other_symbol);
 }
+
+if(player_symbol != 'x')
+	bot();
