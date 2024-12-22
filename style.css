@@ -148,8 +148,8 @@ a {
 	background-color: var(--ul_green);
 }
 
-footer {
-	height: 150px;
+.hidden {
+	display: none;
 }
 .scale {
 	transform: scale(0);
