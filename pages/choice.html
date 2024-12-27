@@ -5,18 +5,21 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 	<title>Choice</title>
-	<link rel="shortcut icon" href="./../img/fav.png" type="image/x-icon">
+	<link rel="shortcut icon" href="../img/fav.png" type="image/x-icon">
 
 	<link rel="stylesheet" href="../style.css">
+	<script src="../scripts/theme.js"></script>
 </head>
 <body>
-	<div class="container">
+	<main>
 		<h1>Choose your symbol:</h1>
 		
-		<div class="flex">
+		<div class="choice">
 			<a href="./game.html?symbol=x" class="b btn red">X</a>
 			<a href="./game.html?symbol=o" class="b btn green">O</a>
 		</div>
-	</div>
+
+		<div class="theme-toggle" onclick="toggleTheme(true)">Toggle theme</div>
+	</main>
 </body>
 </html>

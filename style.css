@@ -5,59 +5,81 @@
 }
 
 :root {
+	--text: #333333;
+
 	--blue: #55acee;
-	--l_blue: #6fc6ff;
-	--d_blue: #3c93d5;
+	--l-blue: #6fc6ff;
+	--d-blue: #3c93d5;
 
 	--green: #2ecc71;
-	--l_green: #48e68b;
-	--ul_green: hsl(145, 100%, 90%);
-	--d_green: #15b358;
+	--l-green: #48e68b;
+	--ul-green: hsl(145, 100%, 90%);
+	--d-green: #15b358;
 
 	--red: #e74c3c;
-	--l_red: #ff6656;
-	--ul_red: hsl(7, 100%, 90%);
-	--d_red: #ce3323;
+	--l-red: #ff6656;
+	--ul-red: hsl(7, 100%, 90%);
+	--d-red: #ce3323;
 
 	--cell-bg: #fffaf0;
+
+	--bg-outer: #d2d2d2;
+	--bg-inner: #eeeeee;
 }
 	
 body {
 	display: flex;
-	align-items: center;
 	justify-content: center;
 
 	height: 100vh;
 	background-color: #f0f8ff;
 	font-family: Arial, sans-serif;
 	text-align: center;
+
+	background-color: var(--bg-outer);
 }
 
 main {
 	display: flex;
 	flex-flow: column nowrap;
 	gap: 20px;
+
+	height: 100%;
+	padding: 20px;
+
+	justify-content: center;
+	align-items: center;
+
+	background-color: var(--bg-inner);
+
+	width: min(100%, 600px);
+}
+
+footer {
+	height: 125px;
+	padding-top: 20px;
 }
 
 h1, h2 {
-	color: #333333;
+	color: var(--text);
 }
 h1 {
-	margin-bottom: 20px;
+	/* margin-bottom: 20px; */
 }
 
-.grid, .flex {
+.board, .choice {
 	gap: 10px;
 }
 
-.grid {
+.board {
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
 	grid-template-rows: repeat(3, 1fr);
-	flex-grow: 1;
+	/* flex-grow: 1; */
+
 }
 
-.flex {
+.choice {
 	display: flex;
 	flex-direction: row;
 	justify-content: center;
@@ -67,15 +89,20 @@ h1 {
 .cell {
 	width: 100px;
 	height: 100px;
+
 	background-color: var(--cell-bg);
-	border: 3px solid #333;
+	border: 3px solid #333333;
+	transition: background-color .1s ease;
+
 	display: flex;
 	justify-content: center;
 	align-items: center;
+
 	font-size: 2em;
 	font-weight: bold;
+
 	cursor: pointer;
-	transition: background-color .3s ease;
+	user-select: none;
 }
 
 .cell:hover {
@@ -100,12 +127,17 @@ a {
 }
 
 .btn {
-	border-radius: 5px;
 	padding: 15px 25px;
+	margin: 20px; /* who tf uses margin? */
+	
+	border-radius: 5px;
+
 	font-size: 22px;
 	text-decoration: none;
-	margin: 20px;
 	color: #fff;
+	transition: background-color .1s ease;
+	user-select: none;
+
 	display: inline-block;
 }
 .btn:active {
@@ -115,43 +147,82 @@ a {
 
 .blue {
 	background-color: var(--blue);
-	box-shadow: 0px 5px 0px 0px var(--d_blue);
+	box-shadow: 0px 5px 0px 0px var(--d-blue);
 }
 .blue:hover {
-	background-color: var(--l_blue);
+	background-color: var(--l-blue);
 }
 
 .green {
 	background-color: var(--green);
-	box-shadow: 0px 5px 0px 0px var(--d_green);
+	box-shadow: 0px 5px 0px 0px var(--d-green);
 }
 .green:hover {
-	background-color: var(--l_green);
+	background-color: var(--l-green);
 }
 
 .red {
 	background-color: var(--red);
-	box-shadow: 0px 5px 0px 0px var(--d_red);
+	box-shadow: 0px 5px 0px 0px var(--d-red);
 }
 .red:hover {
-	background-color: var(--l_red);
+	background-color: var(--l-red);
 }
 
 .highlight {
 	transition: background-color 1s ease;
 }
 
-.highlight.x {
-	background-color: var(--ul_red);
+.highlight.x, .highlight.x:hover {
+	background-color: var(--ul-red);
 }
-.highlight.o {
-	background-color: var(--ul_green);
+
+.highlight.o, .highlight.o:hover {
+	background-color: var(--ul-green);
 }
 
 .hidden {
 	display: none;
 }
+
 .scale {
 	transform: scale(0);
-	height: 0;
+	height: 0px;
+}
+
+.theme-toggle {
+	font-size: 0.75rem;
+	text-decoration: underline;
+	cursor: pointer;
+	user-select: none;
+	color: var(--text);
+
+	position: absolute;
+	bottom: 40px;
+
+}
+
+@media screen and (max-width: 400px) {
+
+}
+
+.theme-transition :is(body, main, h1, h2, .theme-toggle) {
+	transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+:root.dark {
+	--text: #eeeeee;
+	--bg-outer: #2a2a2a;
+	--bg-inner: #333333;
+	--cell-bg: #444444;
+
+	--ul-green: hsl(145, 50%, 20%);	
+	--ul-red: hsl(7, 50%, 20%);
+}
+
+.dark .cell {
+	border-color: #202020;
+}
+.dark .cell:hover {
+	background-color: #555555;
 }
