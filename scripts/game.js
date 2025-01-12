@@ -1,3 +1,6 @@
+//Helou! If you wish your bot, to not play randomly, but to use alfa-beta pruning make sure that alfa-beta pruning is turned ON
+let alfa_beta = false;
+
 const board_cells = document.querySelectorAll('.cell');
 const board_cells_data = [];
 
@@ -132,8 +135,13 @@ function bot() {
 
 	cells_left.forEach(option => {
 		const evaluation = evaluate(board_cells_data, option, other_symbol, 0);
-		
-		if(evaluation > best_val || (evaluation == best_val && Math.random() < .5)) {
+		if(alfa_beta){
+			if(evaluation > best_val) {
+				best_val = evaluation;
+				best_option = option;
+			}
+		}
+		else if(evaluation > best_val || (evaluation == best_val && Math.random() < .5)) {
 			best_val = evaluation;
 			best_option = option;
 		}
